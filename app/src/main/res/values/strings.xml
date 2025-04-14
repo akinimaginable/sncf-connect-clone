@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SNCF Connect</string>
+    <string name="home">Home</string>
+    <string name="hello">Hello 👋</string>
+    <string name="catalogue">Catalogue</string>
+    <string name="tickets">Tickets</string>
+    <string name="account">Account</string>
+
+    <string name="simplify">Simplify your journeys</string>
+
+    <string name="station_timetables">Station timetable</string>
+    <string name="departures_and_arrivals_boards">Departures and arrivals boards</string>
+
+    <string name="your_routes">Your routes</string>
+    <string name="routes_freq">Regular, occasional, etc.</string>
+
+    <string name="traffic_networks">Traffic Info and Networks</string>
+    <string name="disruptions_track_works_plans">Disruptions, track works, plans…</string>
+</resources>
