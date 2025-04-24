@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.etrange.sncfconnect.R
@@ -90,7 +91,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
             )
             Text(
                 color = Gray10,
-                text = "Search for your journeys, commuter trips and much more...",
+                text = stringResource(R.string.search_for_your_journeys_commuter_trips_and_much_more),
                 modifier = Modifier.padding(0.dp, 12.dp),
                 style = TextStyle(
                     fontSize = 26.sp,
@@ -106,7 +107,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
                     .padding(0.dp, 12.dp, 0.dp)
                     .border(2.dp, Color.White, RoundedCornerShape(64.dp))
                     .fillMaxWidth(),
-                placeholder = { Text(text = "A destination, a question...") },
+                placeholder = { Text(text = stringResource(R.string.a_destination_a_question)) },
                 shape = MaterialTheme.shapes.extraLarge,
                 colors = TextFieldDefaults.colors(
                     focusedIndicatorColor = Color.Transparent,
@@ -168,14 +169,14 @@ fun HomeScreen(innerPadding: PaddingValues) {
                                 .fillMaxWidth()
                         )
                         Text(
-                            text = "Much more than a train!", style = TextStyle(
+                            text = stringResource(R.string.much_more_than_a_train), style = TextStyle(
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Medium,
                                 letterSpacing = 0.2.sp,
                             )
                         )
                         Text(
-                            color = Gray50, text = "Hire car, hotels, etc.", style = TextStyle(
+                            color = Gray50, text = stringResource(R.string.hire_car_hotels_etc), style = TextStyle(
                                 fontSize = 15.sp,
                                 letterSpacing = 0.2.sp,
                             )
@@ -198,7 +199,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Column {
                         Text(
-                            text = "Legal information", style = TextStyle(
+                            text = stringResource(R.string.legal_information), style = TextStyle(
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Medium,
                                 letterSpacing = 0.2.sp,
@@ -206,7 +207,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
                         )
                         Text(
                             color = Gray50,
-                            text = "General terms and conditions of sale, terms and conditions for displaying offers, payment methods.",
+                            text = stringResource(R.string.terms),
                             style = TextStyle(
                                 fontSize = 15.sp,
                                 letterSpacing = 0.2.sp,
@@ -222,4 +223,10 @@ fun HomeScreen(innerPadding: PaddingValues) {
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenPreview() {
+    HomeScreen(innerPadding = PaddingValues(0.dp))
 }

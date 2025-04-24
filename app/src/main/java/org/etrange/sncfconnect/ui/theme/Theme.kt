@@ -40,7 +40,8 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun SNCFConnectTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = false, content: @Composable () -> Unit
+    dynamicColor: Boolean = false,
+    content: @Composable () -> Unit
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
@@ -52,7 +53,5 @@ fun SNCFConnectTheme(
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme, typography = Typography, content = content
-    )
+    MaterialTheme(colorScheme = colorScheme, typography = Typography, content = content)
 }
