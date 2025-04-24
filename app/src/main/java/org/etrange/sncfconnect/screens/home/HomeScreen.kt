@@ -43,11 +43,11 @@ import org.etrange.sncfconnect.ui.theme.DarkPink
 import org.etrange.sncfconnect.ui.theme.DarkPurple
 import org.etrange.sncfconnect.ui.theme.DarkYellow
 import org.etrange.sncfconnect.ui.theme.Gray10
+import org.etrange.sncfconnect.ui.theme.Gray50
+import org.etrange.sncfconnect.ui.theme.Gray60
 import org.etrange.sncfconnect.ui.theme.LightPink
 import org.etrange.sncfconnect.ui.theme.LightPurple
 import org.etrange.sncfconnect.ui.theme.LightYellow
-import org.etrange.sncfconnect.ui.theme.Gray50
-import org.etrange.sncfconnect.ui.theme.Gray60
 
 @Composable
 fun HomeScreen(innerPadding: PaddingValues) {
@@ -102,19 +102,20 @@ fun HomeScreen(innerPadding: PaddingValues) {
             TextField(
                 value = "",
                 onValueChange = {},
-                placeholder = { Text(text = "A destination, a question...") },
                 modifier = Modifier
                     .padding(0.dp, 12.dp, 0.dp)
                     .border(2.dp, Color.White, RoundedCornerShape(64.dp))
                     .fillMaxWidth(),
+                placeholder = { Text(text = "A destination, a question...") },
+                shape = MaterialTheme.shapes.extraLarge,
                 colors = TextFieldDefaults.colors(
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    focusedContainerColor = Color.Transparent,
-                    unfocusedContainerColor = Color.Transparent,
+                    focusedContainerColor = Color.White,
+                    unfocusedContainerColor = Color.White,
                     unfocusedPlaceholderColor = Gray60,
                     focusedPlaceholderColor = Gray60
-                ),
+                )
             )
         }
         Column(
