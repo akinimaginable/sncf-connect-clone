@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import org.etrange.sncfconnect.screens.account.AccountScreen
+import org.etrange.sncfconnect.screens.account.AccountRoute
 import org.etrange.sncfconnect.screens.catalogue.CatalogueScreen
 import org.etrange.sncfconnect.screens.home.HomeScreen
 import org.etrange.sncfconnect.screens.tickets.TicketsScreen
@@ -34,7 +34,7 @@ fun NavController(start: String = "Home") {
         }
         composable("Account") {
             AppScaffold(navController = navController) { innerPadding ->
-                AccountScreen(innerPadding)
+                AccountRoute(innerPadding)
             }
         }
     }

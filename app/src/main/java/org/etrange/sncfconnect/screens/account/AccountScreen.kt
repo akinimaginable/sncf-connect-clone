@@ -5,12 +5,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,14 +26,25 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.etrange.sncfconnect.R
+import org.etrange.sncfconnect.models.Account
 import org.etrange.sncfconnect.ui.theme.DarkBlue
+import org.etrange.sncfconnect.ui.theme.SNCFConnectTheme
 
 @Composable
-fun AccountScreen(innerPadding: PaddingValues) {
-    val vm = AccountViewModel()
-    val uiState = vm.uiState.collectAsStateWithLifecycle()
+fun AccountScreen(
+    innerPadding: PaddingValues, state: AccountState, onEvent: (AccountEvent) -> Unit
+) {
+    if (state.isLoading) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black.copy(alpha = 0.3f))
+        ) {
+            CircularProgressIndicator()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -57,14 +70,14 @@ fun AccountScreen(innerPadding: PaddingValues) {
                     .background(Color(0XFFE29AFD))
             ) {
                 Text(
-                    text = uiState.value.initial,
+                    text = state.initial,
                     fontSize = 28.sp,
                     color = DarkBlue,
                     fontWeight = FontWeight.SemiBold
                 )
             }
             Text(
-                text = uiState.value.fullName, style = TextStyle(
+                text = state.fullName, style = TextStyle(
                     fontSize = 20.sp, fontWeight = FontWeight.SemiBold, letterSpacing = 0.2.sp
                 )
             )
@@ -91,7 +104,6 @@ fun AccountScreen(innerPadding: PaddingValues) {
             style = MaterialTheme.typography.titleSmall
         )
 
-
         Text(
             text = stringResource(R.string.help), style = MaterialTheme.typography.titleSmall
         )
@@ -110,5 +122,12 @@ fun AccountScreen(innerPadding: PaddingValues) {
 @Preview(showBackground = true)
 @Composable
 fun AccountScreenPreview() {
-    AccountScreen(innerPadding = PaddingValues(0.dp))
+    SNCFConnectTheme {
+        AccountScreen(
+            innerPadding = PaddingValues(0.dp), state = AccountState(
+                account = Account(
+                    id = 1, firstName = "John", lastName = "Doe", email = ""
+                )
+            ), onEvent = {})
+    }
 }

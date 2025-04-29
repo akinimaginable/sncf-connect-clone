@@ -49,6 +49,7 @@ import org.etrange.sncfconnect.ui.theme.Gray60
 import org.etrange.sncfconnect.ui.theme.LightPink
 import org.etrange.sncfconnect.ui.theme.LightPurple
 import org.etrange.sncfconnect.ui.theme.LightYellow
+import org.etrange.sncfconnect.ui.theme.SNCFConnectTheme
 
 @Composable
 fun HomeScreen(innerPadding: PaddingValues) {
@@ -169,14 +170,17 @@ fun HomeScreen(innerPadding: PaddingValues) {
                                 .fillMaxWidth()
                         )
                         Text(
-                            text = stringResource(R.string.much_more_than_a_train), style = TextStyle(
+                            text = stringResource(R.string.much_more_than_a_train),
+                            style = TextStyle(
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Medium,
                                 letterSpacing = 0.2.sp,
                             )
                         )
                         Text(
-                            color = Gray50, text = stringResource(R.string.hire_car_hotels_etc), style = TextStyle(
+                            color = Gray50,
+                            text = stringResource(R.string.hire_car_hotels_etc),
+                            style = TextStyle(
                                 fontSize = 15.sp,
                                 letterSpacing = 0.2.sp,
                             )
@@ -228,5 +232,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(innerPadding = PaddingValues(0.dp))
+    SNCFConnectTheme {
+        HomeScreen(innerPadding = PaddingValues(0.dp))
+    }
 }

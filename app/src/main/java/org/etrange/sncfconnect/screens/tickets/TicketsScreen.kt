@@ -20,6 +20,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.etrange.sncfconnect.R
+import org.etrange.sncfconnect.ui.theme.SNCFConnectTheme
 
 @Composable
 fun TicketsScreen(innerPadding: PaddingValues) {
@@ -56,5 +57,7 @@ fun TicketsScreen(innerPadding: PaddingValues) {
 @Preview(showBackground = true)
 @Composable
 fun TicketsScreenPreview() {
-    TicketsScreen(PaddingValues(0.dp))
+    SNCFConnectTheme {
+        TicketsScreen(PaddingValues(0.dp))
+    }
 }

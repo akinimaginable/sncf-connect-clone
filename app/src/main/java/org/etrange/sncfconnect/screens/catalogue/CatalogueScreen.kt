@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.etrange.sncfconnect.R
+import org.etrange.sncfconnect.ui.theme.SNCFConnectTheme
 
 @Composable
 fun CatalogueScreen(innerPadding: PaddingValues) {
@@ -62,5 +63,7 @@ fun CatalogueScreen(innerPadding: PaddingValues) {
 @Preview(showBackground = true)
 @Composable
 fun CatalogueScreenPreview() {
-    CatalogueScreen(innerPadding = PaddingValues(0.dp))
+    SNCFConnectTheme {
+        CatalogueScreen(innerPadding = PaddingValues(0.dp))
+    }
 }
