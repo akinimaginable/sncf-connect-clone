@@ -13,26 +13,26 @@ import org.etrange.sncfconnect.screens.home.HomeScreen
 import org.etrange.sncfconnect.screens.tickets.TicketsScreen
 
 @Composable
-fun NavController(start: String = "Home") {
+fun AppNavigation(startDestination: String = "Home") {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = start) {
-        composable("Home") {
+    NavHost(navController = navController, startDestination = startDestination) {
+        composable(Destinations.Home.route) {
             AppScaffold(navController = navController) { innerPadding ->
                 HomeScreen(innerPadding)
             }
         }
-        composable("Tickets") {
+        composable(Destinations.Tickets.route) {
             AppScaffold(navController = navController) { innerPadding ->
                 TicketsScreen(innerPadding)
             }
         }
-        composable("Catalogue") {
+        composable(Destinations.Catalogue.route) {
             AppScaffold(navController = navController) { innerPadding ->
                 CatalogueScreen(innerPadding)
             }
         }
-        composable("Account") {
+        composable(Destinations.Account.route) {
             AppScaffold(navController = navController) { innerPadding ->
                 AccountRoute(innerPadding)
             }

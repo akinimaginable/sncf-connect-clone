@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.adamglin.PhosphorIcons
@@ -17,44 +18,74 @@ import com.adamglin.phosphoricons.bold.BookOpenText
 import com.adamglin.phosphoricons.bold.House
 import com.adamglin.phosphoricons.bold.QrCode
 import com.adamglin.phosphoricons.bold.User
+import org.etrange.sncfconnect.R
 import org.etrange.sncfconnect.ui.theme.Accent
 import org.etrange.sncfconnect.ui.theme.DarkBlue
 import org.etrange.sncfconnect.ui.theme.Gray60
 
-sealed class AppScreens(val route: String, val icon: ImageVector) {
-    data object Home : AppScreens("Home", PhosphorIcons.Bold.House)
-    data object Tickets : AppScreens("Tickets", PhosphorIcons.Bold.QrCode)
-    data object Catalogue : AppScreens("Catalogue", PhosphorIcons.Bold.BookOpenText)
-    data object Account : AppScreens("Account", PhosphorIcons.Bold.User)
+interface NavigationDestination {
+    val route: String
+    val icon: ImageVector
+    val label: Int
+}
+
+object Destinations {
+    val Home = object : NavigationDestination {
+        override val route = "home"
+        override val icon = PhosphorIcons.Bold.House
+        override val label = R.string.home
+    }
+
+    val Tickets = object : NavigationDestination {
+        override val route = "tickets"
+        override val icon = PhosphorIcons.Bold.QrCode
+        override val label = R.string.tickets
+    }
+
+    val Catalogue = object : NavigationDestination {
+        override val route = "catalogue"
+        override val icon = PhosphorIcons.Bold.BookOpenText
+        override val label = R.string.catalogue
+    }
+
+    val Account = object : NavigationDestination {
+        override val route = "account"
+        override val icon = PhosphorIcons.Bold.User
+        override val label = R.string.account
+    }
+
+    val bottomNavDestinations = listOf(Home, Tickets, Catalogue, Account)
 }
 
 @Composable
 fun Navbar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute: String? = navBackStackEntry?.destination?.route
-    val routes: List<AppScreens> =
-        listOf(AppScreens.Home, AppScreens.Tickets, AppScreens.Catalogue, AppScreens.Account)
-    val selectedIndex = routes.indexOfFirst { it.route == currentRoute }.coerceAtLeast(0)
+    val currentRoute = navBackStackEntry?.destination?.route
+    val bottomNavItems = Destinations.bottomNavDestinations
 
     NavigationBar(containerColor = DarkBlue) {
-        routes.forEachIndexed { index, screen ->
+        bottomNavItems.forEach { destination ->
+            val selected = currentRoute == destination.route
+
             NavigationBarItem(
-                selected = selectedIndex == index,
+                selected = selected,
                 onClick = {
-                    navController.navigate(screen.route) {
+                    navController.navigate(destination.route) {
+                        popUpTo(Destinations.Home.route) { saveState = true }
                         launchSingleTop = true
                         restoreState = true
                     }
                 },
-                icon = { Icon(screen.icon, contentDescription = null) },
-                label = { Text(text = screen.route) },
+                icon = { Icon(destination.icon, contentDescription = "${destination.label} icon") },
+                label = { Text(text = stringResource(destination.label)) },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Accent,
                     selectedTextColor = Accent,
                     unselectedIconColor = Gray60,
                     unselectedTextColor = Gray60,
                     indicatorColor = Color.Transparent
-                ))
+                )
+            )
         }
     }
 }
