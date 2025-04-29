@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.etrange.sncfconnect.repositories.AccountRepository
 
-class AccountViewModel(private val accountRepository: AccountRepository) : ViewModel() {
+class AccountViewModel(private val repository: AccountRepository) : ViewModel() {
     private var _uiState = MutableStateFlow<AccountState>(AccountState())
     val uiState: StateFlow<AccountState> = _uiState.asStateFlow()
 
@@ -17,7 +17,7 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
             is AccountEvent.GetAccount -> {
                 viewModelScope.launch {
                     _uiState.value = _uiState.value.copy(
-                        account = accountRepository.getAccount(event.id),
+                        account = repository.getAccount(event.id),
                     )
                 }
             }
@@ -25,7 +25,7 @@ class AccountViewModel(private val accountRepository: AccountRepository) : ViewM
             is AccountEvent.UpdateAccount -> {
                 viewModelScope.launch {
                     _uiState.value = _uiState.value.copy(
-                        account = accountRepository.updateAccount(event.accountDto),
+                        account = repository.updateAccount(event.accountDto),
                     )
                 }
             }

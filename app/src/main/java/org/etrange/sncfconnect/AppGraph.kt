@@ -17,6 +17,6 @@ object AppGraph {
     }
 
     val accountViewModel: AccountViewModel by lazy {
-        AccountViewModel(accountRepository = accountRepository)
+        AccountViewModel(repository = accountRepository)
     }
 }

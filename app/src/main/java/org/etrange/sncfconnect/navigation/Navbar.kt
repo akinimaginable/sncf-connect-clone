@@ -21,19 +21,19 @@ import org.etrange.sncfconnect.ui.theme.Accent
 import org.etrange.sncfconnect.ui.theme.DarkBlue
 import org.etrange.sncfconnect.ui.theme.Gray60
 
-sealed class AppScreen(val route: String, val icon: ImageVector) {
-    data object Home : AppScreen("Home", PhosphorIcons.Bold.House)
-    data object Tickets : AppScreen("Tickets", PhosphorIcons.Bold.QrCode)
-    data object Catalogue : AppScreen("Catalogue", PhosphorIcons.Bold.BookOpenText)
-    data object Account : AppScreen("Account", PhosphorIcons.Bold.User)
+sealed class AppScreens(val route: String, val icon: ImageVector) {
+    data object Home : AppScreens("Home", PhosphorIcons.Bold.House)
+    data object Tickets : AppScreens("Tickets", PhosphorIcons.Bold.QrCode)
+    data object Catalogue : AppScreens("Catalogue", PhosphorIcons.Bold.BookOpenText)
+    data object Account : AppScreens("Account", PhosphorIcons.Bold.User)
 }
 
 @Composable
 fun Navbar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute: String? = navBackStackEntry?.destination?.route
-    val routes: List<AppScreen> =
-        listOf(AppScreen.Home, AppScreen.Tickets, AppScreen.Catalogue, AppScreen.Account)
+    val routes: List<AppScreens> =
+        listOf(AppScreens.Home, AppScreens.Tickets, AppScreens.Catalogue, AppScreens.Account)
     val selectedIndex = routes.indexOfFirst { it.route == currentRoute }.coerceAtLeast(0)
 
     NavigationBar(containerColor = DarkBlue) {
