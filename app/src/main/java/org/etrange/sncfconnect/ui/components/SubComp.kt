@@ -19,22 +19,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import org.etrange.sncfconnect.ui.theme.Accent
+import org.etrange.sncfconnect.R
+import org.etrange.sncfconnect.ui.theme.DarkPurple
+import org.etrange.sncfconnect.ui.theme.Gray50
+import org.etrange.sncfconnect.ui.theme.LightPurple
+import org.etrange.sncfconnect.ui.theme.SNCFConnectTheme
 
 @Composable
 fun SubComp(
-    title: String, subtitle: String, iconVector: ImageVector, iconBackground: Color, iconTint: Color
+    title: String, subtitle: String, iconVector: Int, iconBackground: Color, iconTint: Color
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
-            .clip(RoundedCornerShape(10.dp))
+            .clip(RoundedCornerShape(12.dp))
             .background(MaterialTheme.colorScheme.surface)
             .fillMaxWidth()
             .padding(10.dp)
@@ -43,27 +45,41 @@ fun SubComp(
             Image(
                 colorFilter = ColorFilter.tint(iconTint),
                 contentDescription = null,
-                imageVector = iconVector,
+                painter = painterResource(id = iconVector),
                 modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
+                    .clip(RoundedCornerShape(12.dp))
                     .background(iconBackground)
                     .padding(10.dp)
-                    .size(28.dp)
+                    .size(32.dp)
             )
-            Column(modifier = Modifier.padding(12.dp, 0.dp)) {
+            Column(modifier = Modifier.padding(12.dp, 2.dp)) {
                 Text(
-                    text = title, style = TextStyle(
-                        fontSize = 18.sp, fontWeight = FontWeight.Medium, letterSpacing = 0.1.sp,
-                    )
+                    text = title, style = MaterialTheme.typography.headlineMedium
                 )
-                Text(text = subtitle, fontSize = 15.sp, color = Color(0xFF9B9EA3))
+                Text(
+                    text = subtitle, style = MaterialTheme.typography.labelMedium, color = Gray50
+                )
             }
         }
         Image(
-            colorFilter = ColorFilter.tint(Accent),
-            contentDescription = null,
             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-            modifier = Modifier.padding(8.dp, 0.dp)
+            contentDescription = "More",
+            modifier = Modifier.padding(horizontal = 8.dp),
+            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary)
+        )
+    }
+}
+
+@Preview
+@Composable
+fun SubCompPreview() {
+    SNCFConnectTheme {
+        SubComp(
+            title = "Title",
+            subtitle = "Subtitle",
+            iconVector = R.drawable.hp_station_board,
+            iconBackground = DarkPurple,
+            iconTint = LightPurple
         )
     }
 }

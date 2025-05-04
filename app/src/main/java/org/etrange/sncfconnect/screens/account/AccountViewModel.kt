@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.etrange.sncfconnect.dtos.AccountDto
 import org.etrange.sncfconnect.repositories.AccountRepository
 
 class AccountViewModel(private val repository: AccountRepository) : ViewModel() {
@@ -14,20 +15,49 @@ class AccountViewModel(private val repository: AccountRepository) : ViewModel() 
 
     fun onEvent(event: AccountEvent) {
         when (event) {
-            is AccountEvent.GetAccount -> {
-                viewModelScope.launch {
-                    _uiState.value = _uiState.value.copy(
-                        account = repository.getAccount(event.id),
-                    )
-                }
-            }
+            is AccountEvent.GetAccount -> fetchAccount(event.id)
+            is AccountEvent.UpdateAccount -> updateAccount(event.accountDto)
+        }
+    }
 
-            is AccountEvent.UpdateAccount -> {
-                viewModelScope.launch {
-                    _uiState.value = _uiState.value.copy(
-                        account = repository.updateAccount(event.accountDto),
-                    )
-                }
+    private fun fetchAccount(id: Int) {
+        viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(isLoading = true)
+
+            try {
+                val account = repository.getAccount(id)
+                // Update with success state
+                _uiState.value = _uiState.value.copy(
+                    account = account,
+                    isLoading = false,
+                    error = null
+                )
+            } catch (e: Exception) {
+                // Handle error state
+                _uiState.value = _uiState.value.copy(
+                    isLoading = false,
+                    error = e.message ?: "Unknown error occurred"
+                )
+            }
+        }
+    }
+
+    private fun updateAccount(accountDto: AccountDto) {
+        viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(isLoading = true)
+
+            try {
+                val updatedAccount = repository.updateAccount(accountDto)
+                _uiState.value = _uiState.value.copy(
+                    account = updatedAccount,
+                    isLoading = false,
+                    error = null
+                )
+            } catch (e: Exception) {
+                _uiState.value = _uiState.value.copy(
+                    isLoading = false,
+                    error = e.message ?: "Failed to update account"
+                )
             }
         }
     }

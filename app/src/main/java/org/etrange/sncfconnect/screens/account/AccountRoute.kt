@@ -17,7 +17,6 @@ fun AccountRoute(
 
     LaunchedEffect(Unit) {
         viewModel.onEvent(AccountEvent.GetAccount(1))
-        state.isLoading = false
     }
 
     AccountScreen(
