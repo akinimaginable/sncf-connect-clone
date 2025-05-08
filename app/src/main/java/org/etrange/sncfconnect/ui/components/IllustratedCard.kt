@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.etrange.sncfconnect.ui.theme.Gray50
 import androidx.compose.material3.MaterialTheme as MT
 
@@ -43,7 +44,7 @@ fun IllustratedCard(icon: ImageVector, title: String, subtitle: String) {
                 text = title, style = MT.typography.headlineMedium
             )
             Text(
-                text = subtitle, style = MT.typography.labelMedium, color = Gray50
+                text = subtitle, style = MT.typography.labelMedium, color = Gray50, fontSize = 14.sp
             )
         }
         Image(

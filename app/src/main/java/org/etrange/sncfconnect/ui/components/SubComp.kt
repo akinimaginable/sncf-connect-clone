@@ -52,7 +52,7 @@ fun SubComp(
                     .padding(10.dp)
                     .size(32.dp)
             )
-            Column(modifier = Modifier.padding(12.dp, 2.dp)) {
+            Column(modifier = Modifier.padding(12.dp, 3.dp)) {
                 Text(
                     text = title, style = MaterialTheme.typography.headlineMedium
                 )

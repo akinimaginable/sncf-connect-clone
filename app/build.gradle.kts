@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
 
     implementation(libs.phosphor.icon)
+    implementation(libs.kotlinx.collections.immutable)
 
     testImplementation(libs.junit)
 

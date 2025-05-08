@@ -1,4 +1,4 @@
-package org.etrange.sncfconnect.screens.account
+package org.etrange.sncfconnect.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

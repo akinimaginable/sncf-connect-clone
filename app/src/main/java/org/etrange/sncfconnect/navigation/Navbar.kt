@@ -10,6 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.adamglin.PhosphorIcons
@@ -77,7 +79,13 @@ fun Navbar(navController: NavHostController) {
                     }
                 },
                 icon = { Icon(destination.icon, contentDescription = "${destination.label} icon") },
-                label = { Text(text = stringResource(destination.label)) },
+                label = {
+                    Text(
+                        text = stringResource(destination.label),
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Accent,
                     selectedTextColor = Accent,

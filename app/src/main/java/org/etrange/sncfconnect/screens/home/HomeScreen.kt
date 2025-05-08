@@ -113,7 +113,7 @@ fun HomeScreen(innerPadding: PaddingValues) {
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text(
-                modifier = Modifier.padding(0.dp, 16.dp),
+                modifier = Modifier.padding(top = 16.dp, bottom = 4.dp),
                 text = stringResource(R.string.simplify),
                 style = MT.typography.titleLarge
             )
@@ -147,8 +147,8 @@ fun HomeScreen(innerPadding: PaddingValues) {
             )
             Spacer(modifier = Modifier.padding(4.dp))
             MuchMoreThanATrain()
-            Spacer(modifier = Modifier.padding(2.dp))
 
+            Spacer(modifier = Modifier.padding(2.dp))
             IllustratedCard(
                 icon = Icons.Default.Info,
                 title = stringResource(R.string.legal_information),
@@ -156,7 +156,6 @@ fun HomeScreen(innerPadding: PaddingValues) {
             )
 
             Spacer(modifier = Modifier.padding(2.dp))
-
             NeedHelpView()
             Spacer(modifier = Modifier.padding(6.dp))
         }

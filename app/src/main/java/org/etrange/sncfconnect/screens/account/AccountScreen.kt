@@ -40,6 +40,7 @@ import org.etrange.sncfconnect.models.Account
 import org.etrange.sncfconnect.ui.components.IllustratedCard
 import org.etrange.sncfconnect.ui.components.MuchMoreThanATrain
 import org.etrange.sncfconnect.ui.components.NeedHelpView
+import org.etrange.sncfconnect.ui.components.OutsideLink
 import org.etrange.sncfconnect.ui.theme.DarkBlue
 import org.etrange.sncfconnect.ui.theme.Gray50
 import org.etrange.sncfconnect.ui.theme.LightPurple

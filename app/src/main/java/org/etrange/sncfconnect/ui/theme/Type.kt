@@ -49,7 +49,8 @@ val Typography = Typography(
         letterSpacing = 0.2.sp
     ),
     labelMedium = TextStyle(
-        fontSize = 14.sp,
+        fontFamily = Avenir,
+        fontSize = 15.sp,
         fontWeight = FontWeight.Normal
     )
 )

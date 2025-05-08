@@ -46,4 +46,18 @@
     <string name="help_icon">Help icon</string>
 
     <string name="start_a_conversation">Start a conversation</string>
+    <string name="your_trips">Your trips</string>
+    <string name="paris_and_its_region">Paris and its region</string>
+    <string name="your_qr_code_sncf_cards">Your QR code SNCF cards</string>
+    <string name="import_label">Import</string>
+    <string name="plus_icon">Plus icon</string>
+    <string name="your_cards_and_local_passes">Your cards and local passes</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>
+    <string name="no_upcoming_trips_at_the_moment">No upcoming trips at the moment</string>
+    <string name="qr_code_icon">QR code icon</string>
+    <string name="emergency_number_3117">Emergency number - 3117</string>
+    <string name="is_your_safety_or_that_of_others_at_risk">Is your safety or that of others at risk?</string>
+    <string name="ticket_already_purchased">Ticket already purchased, option already selected? You can upload it at the top of this page</string>
+    <string name="station_board_icon">Station board icon</string>
 </resources>
