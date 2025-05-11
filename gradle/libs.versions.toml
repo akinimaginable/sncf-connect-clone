@@ -14,6 +14,7 @@ navigationCompose = "2.9.0"
 splashscreen = "1.0.1"
 phosphorIcon = "1.0.0"
 kotlinxCollectionsImmutable = "0.3.8"
+datastoreCoreAndroid = "1.1.6"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -44,6 +45,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 phosphor-icon = { module = "com.adamglin:phosphor-icon", version.ref = "phosphorIcon" }
 kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxCollectionsImmutable" }
+androidx-datastore-core-android = { group = "androidx.datastore", name = "datastore-core-android", version.ref = "datastoreCoreAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

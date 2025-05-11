@@ -63,6 +63,7 @@ dependencies {
 
     implementation(libs.phosphor.icon)
     implementation(libs.kotlinx.collections.immutable)
+    implementation(libs.androidx.datastore.core.android)
 
     testImplementation(libs.junit)
 
