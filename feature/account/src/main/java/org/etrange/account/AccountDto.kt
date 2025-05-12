@@ -1,7 +1,6 @@
-package org.etrange.sncfconnect.dtos
+package org.etrange.account
 
 import kotlinx.serialization.Serializable
-import org.etrange.sncfconnect.models.Account
 
 @Serializable
 data class AccountDto(val id: Long, val firstName: String, val lastName: String, val email: String)

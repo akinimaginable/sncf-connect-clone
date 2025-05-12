@@ -1,4 +1,4 @@
-package org.etrange.sncfconnect.data
+package org.etrange.sncfconnect
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine

@@ -35,8 +35,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.etrange.account.Account
 import org.etrange.sncfconnect.R
-import org.etrange.sncfconnect.models.Account
 import org.etrange.sncfconnect.ui.components.IllustratedCard
 import org.etrange.sncfconnect.ui.components.MuchMoreThanATrain
 import org.etrange.sncfconnect.ui.components.NeedHelpView

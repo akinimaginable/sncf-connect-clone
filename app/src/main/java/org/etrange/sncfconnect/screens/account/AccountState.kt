@@ -1,7 +1,7 @@
 package org.etrange.sncfconnect.screens.account
 
 import androidx.compose.runtime.Stable
-import org.etrange.sncfconnect.models.Account
+import org.etrange.account.Account
 
 @Stable
 data class AccountState(

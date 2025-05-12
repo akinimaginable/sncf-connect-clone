@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -44,7 +43,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:account"))
+
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.datastore.core.android)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.splashscreen)
@@ -54,7 +56,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.collections.immutable)
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.cio)
@@ -62,8 +64,6 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
 
     implementation(libs.phosphor.icon)
-    implementation(libs.kotlinx.collections.immutable)
-    implementation(libs.androidx.datastore.core.android)
 
     testImplementation(libs.junit)
 

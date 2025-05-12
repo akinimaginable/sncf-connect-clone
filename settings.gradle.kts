@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "SNCF Connect"
 include(":app")
+include(":feature:account")

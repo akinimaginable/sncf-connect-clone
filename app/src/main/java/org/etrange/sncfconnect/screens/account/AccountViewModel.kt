@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.etrange.sncfconnect.dtos.AccountDto
-import org.etrange.sncfconnect.repositories.AccountRepository
+import org.etrange.account.AccountDto
+import org.etrange.account.AccountRepository
 
 class AccountViewModel(private val repository: AccountRepository) : ViewModel() {
     private var _uiState = MutableStateFlow<AccountState>(AccountState())

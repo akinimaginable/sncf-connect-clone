@@ -15,6 +15,7 @@ splashscreen = "1.0.1"
 phosphorIcon = "1.0.0"
 kotlinxCollectionsImmutable = "0.3.8"
 datastoreCoreAndroid = "1.1.6"
+jetbrainsKotlinJvm = "2.1.10"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -52,3 +53,4 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
