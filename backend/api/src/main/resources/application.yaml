@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: sncfconnect-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sncfconnect_db
+    username: ema
+    password: ""
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+#logging:
+#  level:
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#    com.zaxxer.hikari: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info
+  info:
+    java:
+      enabled: true
+    process:
+      enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /
+
+service:
+  message: Hello, World
+
+sncf:
+  api:
+    token: uwu

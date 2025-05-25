@@ -19,6 +19,12 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SNCF Connect"
-include(":app")
-include(":feature:account")
+rootProject.name = "sncf-connect-clone"
+
+include(":android:app")
+include(":android:feature:account")
+include(":android:feature:catalogue")
+include(":android:feature:trip")
+include(":backend:api")
+include(":backend:database")
+include(":shared")
