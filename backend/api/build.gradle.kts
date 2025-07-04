@@ -9,8 +9,7 @@ plugins {
 dependencies {
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.spring.boot.starter.actuator)
-    implementation(libs.spring.boot.starter.web)
+    implementation(libs.bundles.spring.boot.starter)
     implementation(libs.spring.doc.openapi.ui)
     implementation(project(":backend:database"))
     implementation(project(":shared"))
